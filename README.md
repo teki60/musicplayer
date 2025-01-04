@@ -1,5 +1,8 @@
-#Music Player
+# Music Player
+
 Music player app made using HTML,CSS and JS
 libraries used : JQuery, Font Awesome
 
-#1st commit
+## 1st commit
+
+![image](image.png)
