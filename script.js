@@ -3,7 +3,7 @@ var audio = new Audio(song[songNum].song)
 $(".title").text(song[songNum].name)
 $(".artist").text(song[songNum].artist)
 $("img").attr('src',song[songNum].img)
-$("input").val(0)
+$(".durationControl").val(0)
 
 // console.log(song[songNum+1].img)
 
@@ -36,7 +36,7 @@ function prev(){
     $("img").attr('src',song[songNum].img)
     $(".artist").text(song[songNum].artist)
     audio.src = song[songNum].song
-    $("input").val(0);
+    $(".durationControl").val(0);
     audio.currentTime = 0;
     // playPause()
     audio.play()
@@ -57,25 +57,28 @@ function next(){
     $("img").attr('src',song[songNum].img)
     $(".artist").text(song[songNum].artist)
     audio.src = song[songNum].song
-    $("input").val(0);
+    $(".durationControl").val(0);
     audio.currentTime = 0;
     // playPause()
     audio.play()
 }
 
-$("input").on('click',function(){
-    audio.currentTime = ($("input").val()*(audio.duration/100))
+$(".durationControl").on('click',function(){
+    audio.currentTime = ($(".durationControl").val()*(audio.duration/100))
 })
 
 $(audio).on("timeupdate",function(){
     if (!isNaN(audio.duration)) {
         var value = (audio.currentTime / audio.duration) * 100;
-        $("input").val(value);
+        $(".durationControl").val(value);
     }
 })
 
-$(".play").on("click",playPause)
+$(".volumeControl").on("input",function(){
+    audio.volume = $(".volumeControl").val()/100
+})
 
+$(".play").on("click",playPause)
 $(".next").on("click",next)
 $(".prev").on("click",prev)
 

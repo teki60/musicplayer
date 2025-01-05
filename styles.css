@@ -48,44 +48,92 @@ margin-top: 10px;
 }
 
 .controls{
-    width: 100%;
+    width: 120%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     margin: 30px 0 0 0;
     height: 60px;
+    position: relative;
+    /* border: 1px solid black; */
 }
 
-input{
+.durationControl{
     width: 80%;
     margin-top: 10px;
     cursor: pointer;
 }
 
-input[type="range"]::-moz-range-track{
+.durationControl::-moz-range-track{
     background-color: gray;
 }
 
-input[type="range"]::-moz-range-progress{
+.durationControl::-moz-range-progress{
     background-color: red;
     height: 5px;  
     border-radius: 10px;  
 }
 
-input[type="range"]::-moz-range-thumb{
+.durationControl::-moz-range-thumb{
     width: 0;
     height: 0;
     border-radius: 50%;
     transition: 0.3s;
 }
 
-input[type="range"]:hover::-moz-range-thumb{
+.durationControl:hover::-moz-range-thumb{
     width: 10px;
     height: 10px;
     border-radius: 50%;
     transition: 0.3s;
 }
+
+.songcontrols{
+    display: flex;
+    justify-content: right;
+    gap: 30px;
+    flex: 3;
+}
+
+.volumeControl{
+    /* position: absolute; */
+    position: relative;
+    width: 90px;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    
+}
+
+.volumeControl::-moz-range-track{
+    background-color: gray;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.volumeControl::-moz-range-progress{
+    background-color: blue;
+    height: 6px;  
+    border-radius: 10px;  
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.volumeControl::-moz-range-thumb{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+.volumeControl:hover::-moz-range-thumb{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
 
 .fas{
     font-size: 30px;
