@@ -1,6 +1,6 @@
 # Music Player
 
-Music player app made using HTML,CSS and JS
+Simple and stylish Music player app built using HTML,CSS and JS
 libraries used : JQuery, Font Awesome
 
 ## 1st commit
