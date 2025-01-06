@@ -10,3 +10,7 @@ libraries used : JQuery, Font Awesome
 ## 2nd commit
 Added Volume controller
 ![alt text](image-1.png)
+
+## 3rd commit
+Added current time stamp and total duration of the song
+![alt text](image-2.png)

@@ -9,6 +9,7 @@ $(".durationControl").val(0)
 
 $(audio).on("loadedmetadata", function() {
     console.log(audio.duration);
+    $(".totalDuration").text(`0${Math.floor(audio.duration/60)}:${Math.floor(audio.duration%60)}`)
 });
 
 function playPause(){
@@ -63,7 +64,7 @@ function next(){
     audio.play()
 }
 
-$(".durationControl").on('click',function(){
+$(".durationControl").on('input',function(){
     audio.currentTime = ($(".durationControl").val()*(audio.duration/100))
 })
 
@@ -71,6 +72,18 @@ $(audio).on("timeupdate",function(){
     if (!isNaN(audio.duration)) {
         var value = (audio.currentTime / audio.duration) * 100;
         $(".durationControl").val(value);
+        if(Math.floor(audio.currentTime/60)<10 && Math.floor(audio.currentTime%60)<10){
+        $(".currentTime").text(`0${Math.floor(audio.currentTime/60)}:0${Math.floor(audio.currentTime%60)}`)
+        }
+        else if(Math.floor(audio.currentTime/60)<10 && Math.floor(audio.currentTime%60)>=10 ){
+        $(".currentTime").text(`0${Math.floor(audio.currentTime/60)}:${Math.floor(audio.currentTime%60)}`)
+        }
+        else if(Math.floor(audio.currentTime/60)>=10 && Math.floor(audio.currentTime%60)<10 ){
+            $(".currentTime").text(`${Math.floor(audio.currentTime/60)}:0${Math.floor(audio.currentTime%60)}`)
+        }
+        else{
+            $(".currentTime").text(`${Math.floor(audio.currentTime/60)}:${Math.floor(audio.currentTime%60)}`)
+        }
     }
 })
 
